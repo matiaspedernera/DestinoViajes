@@ -1,6 +1,7 @@
 import world from './world-min.png';
 import './App.css';
-import NavBar from './components/NavBar';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <img src={world} className="App-logo" alt="logo" />
         <NavBar />
       </header>
+      <ItemListContainer message="Mati"/>
     </div>
   );
 }

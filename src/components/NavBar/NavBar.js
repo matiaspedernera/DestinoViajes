@@ -1,4 +1,5 @@
 import './NavBar.css'
+import CartWidget from '../CartWidget/CartWidget';
 
 const Categories = ({ categoryName }) => {
   return <button className="categoriesButton">{categoryName}</button>;
@@ -11,6 +12,7 @@ const NavBar = () => {
       <Categories categoryName='Destinos disponibles'/>
       <Categories categoryName='Sobre nosotros'/>
       <Categories categoryName='Mi perfil'/>
+      <CartWidget />
     </div>
   );
 };
