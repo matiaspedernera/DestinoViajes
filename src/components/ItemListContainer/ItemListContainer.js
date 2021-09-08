@@ -1,7 +1,13 @@
+import ItemCount from "../ItemCount/ItemCount";
 
-const ItemListContainer = ({message}) => {
+const ItemListContainer = ({ message }) => {
   return (
-    <h1>Buenas {message}, aquí veras pronto la lista de productos disponibles</h1>
+    <div>
+      <h1>
+        Buenas {message}, aquí veras pronto la lista de productos disponibles
+      </h1>
+      <ItemCount stock={3} initial="1"/>
+    </div>
   );
 };
 
