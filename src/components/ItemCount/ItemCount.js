@@ -6,7 +6,7 @@ const ItemCount = ({ stock, initial}) => {
     const [cantidad, setCantidad] = useState(initial)
 
     const reducir = () => {
-        if (cantidad <= 0) {
+        if (cantidad <= 1) {
             return
         }
         setCantidad(parseInt(cantidad) - 1)
