@@ -1,4 +1,5 @@
 import ItemList from "../ItemList/ItemList";
+import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 const ItemListContainer = ({ message }) => {
   return (
@@ -7,6 +8,7 @@ const ItemListContainer = ({ message }) => {
         Buenas {message}, aquí veras pronto la lista de productos disponibles
       </h1>
       <ItemList />
+      <ItemDetailContainer />
     </div>
   );
 };
