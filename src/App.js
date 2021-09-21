@@ -1,17 +1,24 @@
-import world from './world-min.png';
-import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Home from "./views/Home";
+import world from "./world-min.png";
+import "./App.css";
+import NavBar from "./components/NavBar/NavBar";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={world} className="App-logo" alt="logo" />
-        <NavBar />
-      </header>
-      <ItemListContainer message="Mati"/>
-    </div>
+    <BrowserRouter>
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <ItemListContainer message="Mati" />
+        </Route>
+        <Route path="/item">
+          <ItemDetailContainer />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
