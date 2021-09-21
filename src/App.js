@@ -1,10 +1,9 @@
-import Home from "./views/Home";
-import world from "./world-min.png";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import ItemList from "./components/ItemList/ItemList";
+import Product from "./views/Product";
 
 function App() {
   return (
@@ -15,7 +14,10 @@ function App() {
           <ItemListContainer message="Mati" />
         </Route>
         <Route path="/item">
-          <ItemDetailContainer />
+          <ItemList />
+        </Route>
+        <Route path="/product/:id">
+          <Product />
         </Route>
       </Switch>
     </BrowserRouter>

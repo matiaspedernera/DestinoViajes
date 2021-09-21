@@ -51,12 +51,8 @@ const ItemDetailContainer = () => {
     <section>
       {listaDetalles.map((v) => (
         <ItemDetail
-          id={v.id}
-          descripcion={v.descripcion}
-          precio={v.precio}
-          img={v.img}
-          stock={v.stock}
-          minimo={v.minimo}
+          key={v.id}
+          item={v}
         />
       ))}
     </section>

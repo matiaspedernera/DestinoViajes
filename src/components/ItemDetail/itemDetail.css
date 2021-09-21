@@ -1,11 +1,7 @@
-.item-link {
-    text-decoration: none;
-    color: black;
+.item-detail-card {
     margin: 50px;
+    margin-left: 30%;
     width: 30%;
-}
-
-.item-card {
     -webkit-box-shadow: 0px 2px 11px 5px rgba(50, 50, 50, 0.75);
     -moz-box-shadow: 0px 2px 11px 5px rgba(50, 50, 50, 0.75);
     box-shadow: 0px 2px 11px 5px rgba(50, 50, 50, 0.75);
@@ -13,4 +9,8 @@
     border-radius: 5px;
     padding: 10px;
     text-align: center;
+}
+
+.item-detail-card img {
+    width: 100%;
 }

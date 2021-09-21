@@ -45,10 +45,15 @@ const ItemList = () => {
     });
   });
 
+  if (listaVuelos.length === 0) {
+    return <h1>Cargando...</h1>;
+  }
+
   return (
     <section>
       {listaVuelos.map((v) => (
         <Item
+          key={v.id}
           id={v.id}
           nombre={v.nombre}
           descripcion={v.descripcion}

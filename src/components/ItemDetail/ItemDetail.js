@@ -1,13 +1,18 @@
 import ItemCount from "../ItemCount/ItemCount";
+import './itemDetail.css'
 
-const ItemDetail = ({ id, descripcion, precio, img, stock, minimo }) => {
+const ItemDetail = ({ item }) => {
+  if (!item) {
+    return <h1>Cargando...</h1>;
+  }
+
   return (
-    <div className="item-card" id={id}>
-      <img src={img} alt={id} />
-      <h4>{descripcion}</h4>
-      <p>ARS ${precio}</p>
-      <ItemCount stock={stock} initial={minimo} />
-      <p>Stock disponible: {stock} viajes</p>
+    <div className="item-detail-card" id={item.id}>
+      <img src={item.img} alt={item.id} />
+      <h4>{item.descripcion}</h4>
+      <p>ARS ${item.precio}</p>
+      <ItemCount stock={item.stock} initial={item.minimo} />
+      <p>Stock disponible: {item.stock} viajes</p>
     </div>
   );
 };

@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 const Categories = ({ categoryName, url }) => {
   return (
     <button className="categoriesButton">
-      <Link className="link" to={url}>{categoryName}</Link>
+      <Link className="link" to={url}>
+        {categoryName}
+      </Link>
     </button>
   );
 };
@@ -14,7 +16,9 @@ const Categories = ({ categoryName, url }) => {
 const NavBar = () => {
   return (
     <header className="App-header">
-      <img src={world} className="App-logo" alt="logo" />
+      <Link className="link" to="/">
+        <img src={world} className="App-logo" alt="logo" />
+      </Link>
       <div className="buttonMenu">
         <Categories categoryName="Home" url="/" />
         <Categories categoryName="Destinos disponibles" url="/item" />
