@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./itemCount.css";
 
 const ItemCount = ({ onAddedProduct, stock, initial }) => {
@@ -36,11 +35,6 @@ const ItemCount = ({ onAddedProduct, stock, initial }) => {
         <button onClick={() => onAddedProduct(cantidad)}>
           Agregar al carrito
         </button>
-      <Link to="/cart">
-        <button>
-          Finalizar mi compra
-        </button>
-      </Link>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import { useState } from "react/cjs/react.development";
 import ItemCount from "../ItemCount/ItemCount";
 import "./itemDetail.css";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ item }) => {
   const [productAdded, setProductAdded] = useState(0);
@@ -31,7 +32,9 @@ const ItemDetail = ({ item }) => {
           initial={item.minimo}
         />
       )}
-
+      <Link to="/cart">
+        <button>Finalizar mi compra</button>
+      </Link>
       <p>Stock disponible: {item.stock} viajes</p>
     </div>
   );
