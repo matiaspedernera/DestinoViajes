@@ -4,6 +4,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ItemList from "./components/ItemList/ItemList";
 import Product from "./views/Product";
+import Cart from "./views/Cart";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/product/:id">
           <Product />
+        </Route>
+        <Route path="/cart">
+          <Cart />
         </Route>
       </Switch>
     </BrowserRouter>
