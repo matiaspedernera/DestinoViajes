@@ -7,10 +7,12 @@ export const CartContextProvider = ({ children }) => {
 
   const agregarViaje = (item) => {
     setViajes([...viajes, item]);
-    console.log(viajes);
   };
 
-  const eliminarViaje = (id) => {};
+  const eliminarViaje = (id) => {
+    const viajesRestantes = viajes.filter(v => v.id !== id)
+    setViajes(viajesRestantes)
+  };
 
   const limpiarCarrito = () => {
     setViajes([]);

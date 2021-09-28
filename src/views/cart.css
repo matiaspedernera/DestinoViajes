@@ -1,0 +1,55 @@
+.carrito {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.item-added {
+	margin: 10px;
+	width: 50%;
+	-webkit-box-shadow: 0px 2px 11px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 0px 2px 11px 5px rgba(50, 50, 50, 0.75);
+	box-shadow: 0px 2px 11px 5px rgba(50, 50, 50, 0.75);
+	background-color: rgb(235, 235, 235);
+	border-radius: 5px;
+	padding: 10px;
+	text-align: center;
+}
+
+.deleteButton {
+	box-shadow: inset 0px 39px 0px -24px #f29c93;
+	background-color: #fe1a00;
+	border-radius: 4px;
+	border: 1px solid #d83526;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 15px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #b23e35;
+}
+
+.myButton {
+	margin: 10px;
+	box-shadow: inset 0px 39px 0px -24px #f29c93;
+	background-color: #fe1a00;
+	border-radius: 4px;
+	border: 1px solid #d83526;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: Arial;
+	font-size: 15px;
+	padding: 6px 15px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #b23e35;
+}
+.myButton:hover {
+	background-color: #ce0100;
+}
+.myButton:active {
+	position: relative;
+	top: 1px;
+}
