@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Brasil from "../assets/brasil.jpg";
-import Argentina from "../assets/argentina.jpg";
-import Peru from "../assets/peru.jpg";
+import Brasil from "../assets/br.png";
+import Argentina from "../assets/ar.png";
+import Peru from "../assets/pe.png";
 import Item from "../Item/Item";
 import "./itemList.css";
 
@@ -11,21 +11,21 @@ const vuelos = [
     nombre: "Brasil: Río de Janeiro",
     descripcion: "Viaje a Brasil para 2 o 3 personas",
     precio: 30000,
-    img: Brasil,
+    bandera: Brasil,
   },
   {
     id: 2,
     nombre: "Argentina: Cataratas del Iguazú",
     descripcion: "Viaje a Argentina para 1 o 2 personas",
     precio: 15000,
-    img: Argentina,
+    bandera: Argentina,
   },
   {
     id: 3,
     nombre: "Perú: Machu Pichu",
     descripcion: "Viaje a Perú para 3 o 4 personas",
     precio: 80000,
-    img: Peru,
+    bandera: Peru,
   },
 ];
 
@@ -56,9 +56,7 @@ const ItemList = () => {
           key={v.id}
           id={v.id}
           nombre={v.nombre}
-          descripcion={v.descripcion}
-          precio={v.precio}
-          img={v.img}
+          bandera={v.bandera}
         />
       ))}
     </section>

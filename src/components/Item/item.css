@@ -1,8 +1,8 @@
 .item-link {
     text-decoration: none;
     color: black;
-    margin: 50px;
-    width: 30%;
+    margin: 55px;
+    width: 25%;
 }
 
 .item-card {
@@ -13,4 +13,8 @@
     border-radius: 5px;
     padding: 10px;
     text-align: center;
+}
+
+.item-bandera {
+    width: 50%;
 }

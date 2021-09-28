@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useContext } from "react/cjs/react.development";
+import CartContext from "../../context/cartContext";
 import "./itemCount.css";
 
 const ItemCount = ({ onAddedProduct, stock, initial }) => {
   const [cantidad, setCantidad] = useState(initial);
+  const { setViajes } = useContext(CartContext);
 
   const reducir = () => {
     if (cantidad <= initial) {
@@ -32,9 +35,9 @@ const ItemCount = ({ onAddedProduct, stock, initial }) => {
         />
         <button onClick={aumentar}>+</button>
       </div>
-        <button onClick={() => onAddedProduct(cantidad)}>
-          Agregar al carrito
-        </button>
+      <button onClick={() => onAddedProduct(cantidad)}>
+        Agregar al carrito
+      </button>
     </div>
   );
 };
