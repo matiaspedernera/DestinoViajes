@@ -5,8 +5,9 @@ const CartContext = createContext([]);
 export const CartContextProvider = ({ children }) => {
   const [viajes, setViajes] = useState([]);
 
-  const agregarViaje = (item, cantidad) => {
-    setViajes([...item]);
+  const agregarViaje = (item) => {
+    setViajes([...viajes, item]);
+    console.log(viajes);
   };
 
   const eliminarViaje = (id) => {};

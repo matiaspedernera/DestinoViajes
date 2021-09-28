@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const ItemDetail = ({ item }) => {
   const [productAdded, setProductAdded] = useState(0);
   const [itemCount, setItemCount] = useState(false);
-  console.log(`Se agregaron ${productAdded} productos`);
 
   if (!item) {
     return <h1>Cargando...</h1>;
@@ -27,7 +26,8 @@ const ItemDetail = ({ item }) => {
         <div></div>
       ) : (
         <ItemCount
-          onAddedProduct={addProduct}
+          id={item.id}
+          descripcion={item.descripcion}
           stock={item.stock}
           initial={item.minimo}
         />
