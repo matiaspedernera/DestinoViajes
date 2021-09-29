@@ -6,12 +6,23 @@ export const CartContextProvider = ({ children }) => {
   const [viajes, setViajes] = useState([]);
 
   const agregarViaje = (item) => {
-    setViajes([...viajes, item]);
+    const viajeEnCarrito = viajes.find((v) => v.id === item.id);
+    if (viajeEnCarrito) {
+      const viajesPrevios = viajes.map((vi) => {
+        if (vi.id === viajeEnCarrito.id) {
+          vi.cantidad = vi.cantidad + toString(item.cantidad);
+        }
+        return vi;
+      });
+      setViajes([...viajesPrevios]);
+    } else {
+      setViajes([...viajes, item]);
+    }
   };
 
   const eliminarViaje = (id) => {
-    const viajesRestantes = viajes.filter(v => v.id !== id)
-    setViajes(viajesRestantes)
+    const viajesRestantes = viajes.filter((v) => v.id !== id);
+    setViajes(viajesRestantes);
   };
 
   const limpiarCarrito = () => {
