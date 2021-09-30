@@ -1,5 +1,5 @@
 .button-cart {
-    margin: 20px;
+    margin: 10px;
     background: linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
     background-color: #77b55a;
     border-radius: 4px;
@@ -10,5 +10,5 @@
 }
 
 .shopping-cart {
-  height: 40px;
+  height: 30px;
 }

@@ -30,6 +30,7 @@ const ItemDetail = ({ item }) => {
           descripcion={item.descripcion}
           stock={item.stock}
           initial={item.minimo}
+          precio={item.precio}
         />
       )}
       <Link to="/cart">

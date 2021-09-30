@@ -3,9 +3,9 @@ import { useContext } from "react/cjs/react.development";
 import CartContext from "../../context/cartContext";
 import "./itemCount.css";
 
-const ItemCount = ({ stock, initial, id, descripcion }) => {
+const ItemCount = ({ stock, initial, id, descripcion, precio }) => {
   const [cantidad, setCantidad] = useState(initial);
-  const { agregarViaje, } = useContext(CartContext);
+  const { agregarViaje } = useContext(CartContext);
   const reducir = () => {
     if (cantidad <= initial) {
       return;
@@ -21,7 +21,7 @@ const ItemCount = ({ stock, initial, id, descripcion }) => {
   };
 
   const agregarProducto = () => {
-    agregarViaje({id, descripcion, cantidad})
+    agregarViaje({id, descripcion, cantidad,precio})
   }
 
   return (

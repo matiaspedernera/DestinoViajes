@@ -6,11 +6,13 @@ export const CartContextProvider = ({ children }) => {
   const [viajes, setViajes] = useState([]);
 
   const agregarViaje = (item) => {
+    item.precio = item.precio * item.cantidad;
     const viajeEnCarrito = viajes.find((v) => v.id === item.id);
     if (viajeEnCarrito) {
       const viajesPrevios = viajes.map((vi) => {
         if (vi.id === viajeEnCarrito.id) {
-          vi.cantidad = vi.cantidad + toString(item.cantidad);
+          vi.cantidad = parseInt(vi.cantidad) + item.cantidad;
+          vi.precio = vi.precio + item.precio;
         }
         return vi;
       });

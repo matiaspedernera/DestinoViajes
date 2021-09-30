@@ -26,7 +26,9 @@ const NavBar = () => {
         <Categories categoryName="Brasil" url="/product/1" />
         <Categories categoryName="Argentina" url="/product/2" />
         <Categories categoryName="Perú" url="/product/3" />
-        <CartWidget />
+        <Link to="/cart">
+          <CartWidget />
+        </Link>
       </div>
     </header>
   );
