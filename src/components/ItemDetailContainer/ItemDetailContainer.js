@@ -13,7 +13,7 @@ const ItemDetailContainer = () => {
   const [viaje, setViaje] = useState(undefined);
 
   useEffect(() => {
-    getDoc(doc(db, "detail-viajes", id))
+    getDoc(doc(db, "viajes", id))
       .then((querySnapshot) => {
         console.log({ id: querySnapshot.id, ...querySnapshot.data() });
         const item = { id: querySnapshot.id, ...querySnapshot.data() };
