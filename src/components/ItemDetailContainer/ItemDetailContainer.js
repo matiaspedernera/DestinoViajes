@@ -4,49 +4,24 @@ import Argentina from "../assets/argentina.jpg";
 import Peru from "../assets/peru.jpg";
 import { useParams } from "react-router";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { db } from "../../services/firebase/firebase";
+import { doc, getDoc } from "firebase/firestore";
 
-const getViaje = () => {
-  return new Promise((resolve, reject) => {
-    const viajes = [
-      {
-        id: "1",
-        descripcion: "Viaje a Brasil para 2 o 3 personas",
-        precio: 30000,
-        img: Brasil,
-        stock: 5,
-        minimo: "2",
-      },
-      {
-        id: "2",
-        descripcion: "Viaje a Argentina para 1 o 2 personas",
-        precio: 15000,
-        img: Argentina,
-        stock: 8,
-        minimo: "1",
-      },
-      {
-        id: "3",
-        descripcion: "Viaje a Perú para 3 o 4 personas",
-        precio: 80000,
-        img: Peru,
-        stock: 6,
-        minimo: "3",
-      },
-    ];
-    setTimeout(() => resolve(viajes), 2000);
-  });
-};
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
   const [viaje, setViaje] = useState(undefined);
 
   useEffect(() => {
-    const listViajes = getViaje();
-    listViajes.then((result) => {
-      const viaje = result.find((destino) => destino.id === id);
-      setViaje(viaje);
-    });
+    getDoc(doc(db, "detail-viajes", id))
+      .then((querySnapshot) => {
+        console.log({ id: querySnapshot.id, ...querySnapshot.data() });
+        const item = { id: querySnapshot.id, ...querySnapshot.data() };
+        setViaje(item);
+      })
+      .catch((error) => {
+        console.log("Error searching intems", error);
+      });
 
     return () => {
       setViaje(undefined);
@@ -55,9 +30,7 @@ const ItemDetailContainer = () => {
 
   return (
     <section>
-      <ItemDetail
-        item={viaje}
-      />
+      <ItemDetail item={viaje} />
     </section>
   );
 };
