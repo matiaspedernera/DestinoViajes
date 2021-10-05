@@ -5,43 +5,13 @@ import Peru from "../assets/pe.png";
 import Item from "../Item/Item";
 import "./itemList.css";
 import { db } from "../../services/firebase/firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
-
-const vuelos = [
-  {
-    id: 1,
-    nombre: "Brasil: Río de Janeiro",
-    descripcion: "Viaje a Brasil para 2 o 3 personas",
-    precio: 30000,
-    bandera: Brasil,
-  },
-  {
-    id: 2,
-    nombre: "Argentina: Cataratas del Iguazú",
-    descripcion: "Viaje a Argentina para 1 o 2 personas",
-    precio: 15000,
-    bandera: Argentina,
-  },
-  {
-    id: 3,
-    nombre: "Perú: Machu Pichu",
-    descripcion: "Viaje a Perú para 3 o 4 personas",
-    precio: 80000,
-    bandera: Peru,
-  },
-];
-
-const llamadoLista = () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => resolve(vuelos), 2000);
-  });
-};
+import { collection, getDocs } from "firebase/firestore";
 
 const ItemList = () => {
   const [listaVuelos, setListaVuelos] = useState([]);
 
   useEffect(() => {
-    getDocs(collection(db, "vuelos"))
+    getDocs(collection(db, "viajes"))
       .then((querySnapshot) => {
         const products = querySnapshot.docs.map((doc) => {
           return { id: doc.id, ...doc.data() };
@@ -51,7 +21,7 @@ const ItemList = () => {
       .catch((error) => {
         console.log("Error searching intems", error);
       });
-  });
+  },[]);
 
   if (listaVuelos.length === 0) {
     return <h1>Cargando...</h1>;
