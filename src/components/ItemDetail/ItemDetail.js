@@ -19,7 +19,7 @@ const ItemDetail = ({ item }) => {
 
   return (
     <div className="item-detail-card" id={item.id}>
-      <img src={item.img} alt={item.id} />
+      <img src={item.imagen} alt={item.id} />
       <h4>{item.descripcion}</h4>
       <p>ARS ${item.precio}</p>
       {itemCount ? (
