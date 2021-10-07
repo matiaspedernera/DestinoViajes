@@ -2,6 +2,7 @@ import world from "../../world-min.png";
 import "./navBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
 
 const Categories = ({ categoryName, url }) => {
   return (
@@ -14,6 +15,8 @@ const Categories = ({ categoryName, url }) => {
 };
 
 const NavBar = () => {
+  const [categorias, setCategorias] = useState([]);
+
   return (
     <header className="App-header">
       <Link className="link" to="/">
