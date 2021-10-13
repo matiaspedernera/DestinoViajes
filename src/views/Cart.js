@@ -8,13 +8,16 @@ import {
   writeBatch,
 } from "firebase/firestore";
 import CartContext from "../context/cartContext";
+import UserContext from "../context/userContext";
 import "./cart.css";
 import { Link } from "react-router-dom";
 import { db } from "../services/firebase/firebase";
 
 const Cart = () => {
   const { viajes, limpiarCarrito, eliminarViaje } = useContext(CartContext);
+  const { user } = useContext(UserContext);
   console.log(viajes);
+  console.log(user);
 
   const eliminarCarrito = () => {
     limpiarCarrito();
@@ -26,11 +29,7 @@ const Cart = () => {
 
   const finalizarCompra = () => {
     const carritoFinal = {
-      buyer: {
-        name: "Mati",
-        phone: "351-2223334",
-        email: "mati.peder@matipeder.com",
-      },
+      buyer: user,
       items: viajes,
       date: Timestamp.fromDate(new Date()),
     };
@@ -41,7 +40,8 @@ const Cart = () => {
       getDoc(doc(db, "viajes", prod.id)).then((DocumentSnapshot) => {
         if (DocumentSnapshot.data().stock >= carritoFinal.items[i].cantidad) {
           batch.update(doc(db, "viajes", DocumentSnapshot.id), {
-            stock: DocumentSnapshot.data().stock - carritoFinal.items[i].cantidad,
+            stock:
+              DocumentSnapshot.data().stock - carritoFinal.items[i].cantidad,
           });
         } else {
           sinStock.push({
@@ -56,7 +56,7 @@ const Cart = () => {
       addDoc(collection(db, "ordenes"), carritoFinal)
         .then(() => {
           batch.commit().then(() => {
-            console.log("Se finalizó la compra")
+            console.log("Se finalizó la compra");
           });
         })
         .catch((error) => {

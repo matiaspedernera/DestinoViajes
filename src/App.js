@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./views/Cart";
 import CartContext, { CartContextProvider } from "./context/cartContext";
+import MiPerfil from "./views/Login";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route path="/cart">
               <Cart />
+            </Route>
+            <Route path="/miperfil">
+              <MiPerfil />
             </Route>
           </Switch>
         </BrowserRouter>

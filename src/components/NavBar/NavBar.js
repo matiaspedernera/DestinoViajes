@@ -25,10 +25,7 @@ const NavBar = () => {
       <div className="buttonMenu">
         <Categories categoryName="Home" url="/" />
         <Categories categoryName="Sobre nosotros" url="/nosotros" />
-        <Categories categoryName="Mi perfil" url="/perfil" />
-        <Categories categoryName="Brasil" url="/product/1" />
-        <Categories categoryName="Argentina" url="/product/2" />
-        <Categories categoryName="Perú" url="/product/3" />
+        <Categories categoryName="Mi perfil" url="/miperfil" />
         <Link to="/cart">
           <CartWidget />
         </Link>
