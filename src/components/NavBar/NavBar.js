@@ -8,7 +8,7 @@ import { collection, getDocs } from "firebase/firestore";
 const Categories = ({ categoryName, url }) => {
   return (
     <NavLink className="categoriesButton" to={url}>
-        {categoryName}
+      {categoryName}
     </NavLink>
   );
 };
@@ -24,9 +24,7 @@ const NavBar = () => {
         });
         setCategorias(categorias);
       })
-      .catch((error) => {
-        console.log("Error searching categories", error);
-      });
+      .catch((error) => {});
   });
 
   return (

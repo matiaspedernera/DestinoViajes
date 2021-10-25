@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react/cjs/react.development";
 import ItemCount from "../ItemCount/ItemCount";
 import "./itemDetail.css";
 import { Link } from "react-router-dom";
@@ -7,17 +6,10 @@ import UserContext from "../../context/userContext";
 
 const ItemDetail = ({ item }) => {
   const { user } = useContext(UserContext);
-  const [itemCount, setItemCount] = useState(false);
-  console.log(user);
   
-  useEffect(() => {
-    
-  },[user])
-
   if (!item) {
     return <h1>Cargando...</h1>;
   }
-
 
   return (
     <div className="item-detail-card" id={item.id}>

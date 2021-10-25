@@ -55,13 +55,9 @@ const Cart = () => {
     if (sinStock.length === 0) {
       addDoc(collection(db, "ordenes"), carritoFinal)
         .then(() => {
-          batch.commit().then(() => {
-            console.log("Se finalizó la compra");
-          });
+          batch.commit().then(() => {});
         })
-        .catch((error) => {
-          console.log("Error al finalizar la compra");
-        })
+        .catch((error) => {})
         .finally(() => {
           limpiarCarrito();
         });
@@ -94,7 +90,6 @@ const Cart = () => {
               </p>
             </div>
           ))}
-          {/* <h5>Precio total:</h5> */}
           <button className="myButton" onClick={eliminarCarrito}>
             Eliminar mi carrito
           </button>

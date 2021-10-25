@@ -22,7 +22,6 @@ const MiPerfil = () => {
 
     loginUsuario(userInfo);
     history.push("/");
-    console.log(user);
   };
 
   const logOut = () => {

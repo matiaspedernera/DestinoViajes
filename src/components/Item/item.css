@@ -1,3 +1,8 @@
+.item-title {
+    font-size: 20px;
+    margin: 5px;
+}
+
 .item-link {
     text-decoration: none;
     color: black;
@@ -17,4 +22,5 @@
 
 .item-bandera {
     width: 50%;
+    margin: 20px;
 }
