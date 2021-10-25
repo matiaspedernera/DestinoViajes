@@ -6,6 +6,7 @@ export const CartContextProvider = ({ children }) => {
   const [viajes, setViajes] = useState([]);
 
   const agregarViaje = (item) => {
+    item.cantidad = parseInt(item.cantidad);
     item.precio = item.precio * item.cantidad;
     const viajeEnCarrito = viajes.find((v) => v.id === item.id);
     if (viajeEnCarrito) {
@@ -22,6 +23,14 @@ export const CartContextProvider = ({ children }) => {
     }
   };
 
+  const calcularCantidad = () => {
+    let cantidadTotal = 0;
+    viajes.forEach((viaje) => {
+      cantidadTotal = cantidadTotal + viaje.cantidad;
+    });
+    return cantidadTotal;
+  };
+
   const eliminarViaje = (id) => {
     const viajesRestantes = viajes.filter((v) => v.id !== id);
     setViajes(viajesRestantes);
@@ -33,7 +42,13 @@ export const CartContextProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ viajes, agregarViaje, eliminarViaje, limpiarCarrito }}
+      value={{
+        viajes,
+        agregarViaje,
+        eliminarViaje,
+        limpiarCarrito,
+        calcularCantidad,
+      }}
     >
       {children}
     </CartContext.Provider>

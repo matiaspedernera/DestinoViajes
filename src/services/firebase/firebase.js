@@ -1,19 +1,19 @@
-import * as firebase from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+import * as firebase from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCFqBqZ-7EVgo4u6BvZENv8RflasBi8rK0",
-  authDomain: "destino-viajes.firebaseapp.com",
-  projectId: "destino-viajes",
-  storageBucket: "destino-viajes.appspot.com",
-  messagingSenderId: "1075963432238",
-  appId: "1:1075963432238:web:2a3e8bff9d482fa20ebebf",
+  apiKey: process.env.REACT_APP_apiKey,
+  authDomain: process.env.REACT_APP_authDomain,
+  projectId: process.env.REACT_APP_projectId,
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId,
 };
 
-const app = firebase.initializeApp(firebaseConfig)
+const app = firebase.initializeApp(firebaseConfig);
 
 export const getFirebase = () => {
-    return app
-}
+  return app;
+};
 
-export const db = getFirestore(app)
+export const db = getFirestore(app);

@@ -1,21 +1,33 @@
 import world from "../../world-min.png";
 import "./navBar.css";
 import CartWidget from "../CartWidget/CartWidget";
-import { Link } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
-
+import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react/cjs/react.development";
+import { db } from "../../services/firebase/firebase";
+import { collection, getDocs } from "firebase/firestore";
 const Categories = ({ categoryName, url }) => {
   return (
-    <button className="categoriesButton">
-      <Link className="link" to={url}>
+    <NavLink className="categoriesButton" to={url}>
         {categoryName}
-      </Link>
-    </button>
+    </NavLink>
   );
 };
 
 const NavBar = () => {
-  const [categorias, setCategorias] = useState([]);
+  const [categorias, setCategorias] = useState();
+
+  useEffect(() => {
+    getDocs(collection(db, "categorias"))
+      .then((querySnapshot) => {
+        const categorias = querySnapshot.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        });
+        setCategorias(categorias);
+      })
+      .catch((error) => {
+        console.log("Error searching categories", error);
+      });
+  });
 
   return (
     <header className="App-header">
@@ -24,7 +36,13 @@ const NavBar = () => {
       </Link>
       <div className="buttonMenu">
         <Categories categoryName="Home" url="/" />
-        <Categories categoryName="Sobre nosotros" url="/nosotros" />
+        {categorias?.map((cat) => (
+          <Categories
+            categoryName={cat.descripcion}
+            key={cat.id}
+            url={`/categoria/${cat.id}`}
+          />
+        ))}
         <Categories categoryName="Mi perfil" url="/miperfil" />
         <Link to="/cart">
           <CartWidget />

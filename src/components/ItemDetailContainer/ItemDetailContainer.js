@@ -1,7 +1,4 @@
 import { useEffect, useState } from "react";
-import Brasil from "../assets/brasil.jpg";
-import Argentina from "../assets/argentina.jpg";
-import Peru from "../assets/peru.jpg";
 import { useParams } from "react-router";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { db } from "../../services/firebase/firebase";

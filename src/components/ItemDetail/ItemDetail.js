@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react/cjs/react.development";
 import ItemCount from "../ItemCount/ItemCount";
 import "./itemDetail.css";
 import { Link } from "react-router-dom";
@@ -9,16 +9,21 @@ const ItemDetail = ({ item }) => {
   const { user } = useContext(UserContext);
   const [itemCount, setItemCount] = useState(false);
   console.log(user);
+  
+  useEffect(() => {
+    
+  },[user])
 
   if (!item) {
     return <h1>Cargando...</h1>;
   }
 
+
   return (
     <div className="item-detail-card" id={item.id}>
       <img src={item.imagen} alt={item.id} />
       <h4>{item.descripcion}</h4>
-      {(user.name === "" || user.phone === "" || user.email === "") ? (
+      {!user ? (
         <div>
           <p>Para agregar productos al carrito debes iniciar sesion primero!</p>
           <Link to="/miperfil">

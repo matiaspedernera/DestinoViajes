@@ -21,8 +21,9 @@ const ItemCount = ({ stock, initial, id, descripcion, precio }) => {
   };
 
   const agregarProducto = () => {
-    agregarViaje({id, descripcion, cantidad,precio})
-  }
+    setCantidad(parseInt(cantidad));
+    agregarViaje({ id, descripcion, cantidad, precio });
+  };
 
   return (
     <div>
@@ -38,9 +39,7 @@ const ItemCount = ({ stock, initial, id, descripcion, precio }) => {
         />
         <button onClick={aumentar}>+</button>
       </div>
-      <button onClick={agregarProducto}>
-        Agregar al carrito
-      </button>
+      <button onClick={agregarProducto}>Agregar al carrito</button>
     </div>
   );
 };
